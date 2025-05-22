@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "幣安資金管理插件",
+  "version": "1.0",
+  "description": "用於幣安交易所的資金管理工具",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["https://*.binance.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["content_scripts/*"],
+      "matches": ["https://*.binance.com/*"]
+    }
+  ]
+}
